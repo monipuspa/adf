@@ -1,0 +1,17 @@
+{
+	"name": "samplefile",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV",
+			"userId": "tapaskmondal@hotmail.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3MDI2ZTczMC00OTJmLTQwYTUtOTExZC1hZTNhMTc2OWJjN2YiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
