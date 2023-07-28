@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfmoni1"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBloblink_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": "Integrated Security=True;Data Source=MAHI\\SQLEXPRESS;Initial Catalog=azure"
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"employefile_password": {
+			"value": ""
+		},
+		"samplefile_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://gen2datalake7132023.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "MAHI\\tapas"
+		},
+		"employefile_properties_typeProperties_host": {
+			"value": "\\\\Sample Files/CSV/"
+		},
+		"employefile_properties_typeProperties_userId": {
+			"value": "tapakmondal@hotmail.com"
+		},
+		"samplefile_properties_typeProperties_host": {
+			"value": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV"
+		},
+		"samplefile_properties_typeProperties_userId": {
+			"value": "tapaskmondal@hotmail.com"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
