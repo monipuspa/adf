@@ -112,8 +112,7 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "name",
-											"type": "String",
+											"name": "age",
 											"physicalType": "String"
 										},
 										"sink": {
@@ -124,8 +123,7 @@
 									},
 									{
 										"source": {
-											"name": "age",
-											"type": "String",
+											"name": "name",
 											"physicalType": "String"
 										},
 										"sink": {
