@@ -1,0 +1,23 @@
+{
+	"name": "empdatablob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBloblink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "TESTFile.csv",
+				"container": "inputcontaner"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
