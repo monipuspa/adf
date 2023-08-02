@@ -28,6 +28,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer1'"
 		},
+		"bloblink_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'bloblink'"
+		},
 		"employefile_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'employefile'"
@@ -101,6 +105,9 @@
 					},
 					"SqlServer1_password": {
 						"value": "[parameters('SqlServer1_password')]"
+					},
+					"bloblink_connectionString": {
+						"value": "[parameters('bloblink_connectionString')]"
 					},
 					"employefile_password": {
 						"value": "[parameters('employefile_password')]"
