@@ -32,6 +32,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'bloblink'"
 		},
+		"dipertment1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'dipertment1'"
+		},
 		"employefile_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'employefile'"
@@ -47,6 +51,10 @@
 		"SqlServer1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "MAHI\\tapas"
+		},
+		"dipertment1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://gen2datalake7132023.dfs.core.windows.net/"
 		},
 		"employefile_properties_typeProperties_host": {
 			"type": "string",
@@ -100,6 +108,9 @@
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
 					},
+					"dipertment1_accountKey": {
+						"value": "[parameters('dipertment1_accountKey')]"
+					},
 					"SqlServer1_connectionString": {
 						"value": "[parameters('SqlServer1_connectionString')]"
 					},
@@ -117,6 +128,9 @@
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"dipertment1_properties_typeProperties_url": {
+						"value": "[parameters('dipertment1_properties_typeProperties_url')]"
 					},
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
@@ -136,6 +150,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adfmoni1_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfmoni1_ArmTemplate_0')]"
+			]
 		}
 	]
 }
