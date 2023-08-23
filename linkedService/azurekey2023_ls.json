@@ -1,0 +1,10 @@
+{
+	"name": "azurekey2023_ls",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://azurekey2023.vault.azure.net/"
+		}
+	}
+}
