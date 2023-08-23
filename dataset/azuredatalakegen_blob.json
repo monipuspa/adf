@@ -1,0 +1,31 @@
+{
+	"name": "azuredatalakegen_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azurelink_blob",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"outputstoragename": {
+				"type": "string"
+			},
+			"outputfilename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Department.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

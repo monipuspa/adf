@@ -1,0 +1,37 @@
+{
+	"name": "blobsink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azurelink_blob",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"datalakesink": {
+				"type": "string"
+			},
+			"datalakefilename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().datalakefilename",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().datalakesink",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
