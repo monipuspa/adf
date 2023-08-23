@@ -14,10 +14,22 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=cloudsqlpool.database.windows.net;Initial Catalog=cloud;User ID=cloud"
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=cloudsqlpool.database.windows.net;Initial Catalog=cloud;User ID=cloud"
+		},
 		"SqlServer1_connectionString": {
 			"value": "Integrated Security=True;Data Source=MAHI\\SQLEXPRESS;Initial Catalog=azure"
 		},
 		"SqlServer1_password": {
+			"value": ""
+		},
+		"azurelink_blob_connectionString": {
 			"value": ""
 		},
 		"bloblink_connectionString": {
@@ -35,8 +47,14 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://gen2datalake7132023.dfs.core.windows.net/"
 		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://azurekeys1.vault.azure.net/"
+		},
 		"SqlServer1_properties_typeProperties_userName": {
 			"value": "MAHI\\tapas"
+		},
+		"azurekey2023_ls_properties_typeProperties_baseUrl": {
+			"value": "https://azurekey2023.vault.azure.net/"
 		},
 		"dipertment1_properties_typeProperties_url": {
 			"value": "https://gen2datalake7132023.dfs.core.windows.net/"
