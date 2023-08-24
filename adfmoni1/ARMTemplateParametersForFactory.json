@@ -29,6 +29,9 @@
 		"SqlServer1_password": {
 			"value": ""
 		},
+		"azurebloblink_copy_connectionString": {
+			"value": ""
+		},
 		"azurelink_blob_connectionString": {
 			"value": ""
 		},

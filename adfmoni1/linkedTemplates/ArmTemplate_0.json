@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
+		"azurebloblink_copy_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'azurebloblink_copy'"
+		},
 		"azurelink_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'azurelink_blob'"
@@ -122,6 +126,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/azurebloblink_copy')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('azurebloblink_copy_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/azurekey2023_ls')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -180,14 +197,14 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "azurelink_blob",
+					"referenceName": "azurebloblink_copy",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"outputstoragename": {
+					"storagename": {
 						"type": "string"
 					},
-					"outputfilename": {
+					"storagefile": {
 						"type": "string"
 					}
 				},
@@ -196,8 +213,14 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Department.csv",
-						"container": "input"
+						"fileName": {
+							"value": "@dataset().storagefile",
+							"type": "Expression"
+						},
+						"container": {
+							"value": "@dataset().storagename",
+							"type": "Expression"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -207,7 +230,49 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/azurelink_blob')]"
+				"[concat(variables('factoryId'), '/linkedServices/azurebloblink_copy')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/blobdataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "azurebloblink_copy",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"datalakesink": {
+						"type": "string"
+					},
+					"datalakefile": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().datalakefile",
+							"type": "Expression"
+						},
+						"container": {
+							"value": "@dataset().datalakesink",
+							"type": "Expression"
+						}
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/azurebloblink_copy')]"
 			]
 		},
 		{
@@ -216,7 +281,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "azurelink_blob",
+					"referenceName": "AzureBloblink",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -249,7 +314,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/azurelink_blob')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBloblink')]"
 			]
 		},
 		{
@@ -446,61 +511,6 @@
 						"type": "AzureBlobFSLocation",
 						"fileName": "department.csv",
 						"fileSystem": "output"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/sinkdepartment')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "diperment folder",
-						"fileSystem": "inputfile"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/sinkdepartmentdataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "outputfile"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",

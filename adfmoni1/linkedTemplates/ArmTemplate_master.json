@@ -42,6 +42,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer1'"
 		},
+		"azurebloblink_copy_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'azurebloblink_copy'"
+		},
 		"azurelink_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'azurelink_blob'"
@@ -136,6 +140,9 @@
 					},
 					"AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"azurebloblink_copy_connectionString": {
+						"value": "[parameters('azurebloblink_copy_connectionString')]"
 					},
 					"azurelink_blob_connectionString": {
 						"value": "[parameters('azurelink_blob_connectionString')]"
