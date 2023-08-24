@@ -1,0 +1,39 @@
+{
+	"name": "sinkdataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azurebloblink_copy",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sinkpath": {
+				"type": "string",
+				"defaultValue": "output"
+			},
+			"sinkfile": {
+				"type": "string",
+				"defaultValue": "departmentout.csv"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().sinkfile",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().sinkpath",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
