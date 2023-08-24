@@ -1,0 +1,30 @@
+{
+	"name": "sqldataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase3",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sqlschema": {
+				"type": "string"
+			},
+			"sqltable": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().sqlschema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().sqltable",
+				"type": "Expression"
+			}
+		}
+	}
+}

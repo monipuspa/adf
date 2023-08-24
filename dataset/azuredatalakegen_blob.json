@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"outputstoragename": {
+			"sqlfoldername": {
 				"type": "string"
 			},
-			"outputfilename": {
+			"sqltablename": {
 				"type": "string"
 			}
 		},
@@ -18,8 +18,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Department.csv",
-				"container": "input"
+				"fileName": {
+					"value": "@dataset().outputfilename",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().outputstoragename",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
