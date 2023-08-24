@@ -20,6 +20,14 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": false,
+							"modifiedDatetimeStart": {
+								"value": "@pipeline().parameters.datalakepath",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@pipeline().parameters.datalakefile",
+								"type": "Expression"
+							},
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -49,14 +57,14 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "azuredatalakegen_blob",
+						"referenceName": "blobdataset",
 						"type": "DatasetReference",
 						"parameters": {
-							"outputstoragename": {
+							"datalakesink": {
 								"value": "@pipeline().parameters.datalakepath",
 								"type": "Expression"
 							},
-							"outputfilename": {
+							"datalakefile": {
 								"value": "@pipeline().parameters.datalakefile",
 								"type": "Expression"
 							}

@@ -1,15 +1,15 @@
 {
-	"name": "azuredatalakegen_blob",
+	"name": "blobdataset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "azurebloblink_copy",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"storagename": {
+			"datalakesink": {
 				"type": "string"
 			},
-			"storagefile": {
+			"datalakefile": {
 				"type": "string"
 			}
 		},
@@ -19,11 +19,11 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@dataset().storagefile",
+					"value": "@dataset().datalakefile",
 					"type": "Expression"
 				},
 				"container": {
-					"value": "@dataset().storagename",
+					"value": "@dataset().datalakesink",
 					"type": "Expression"
 				}
 			},

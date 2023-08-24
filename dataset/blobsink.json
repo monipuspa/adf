@@ -2,7 +2,7 @@
 	"name": "blobsink",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "azurelink_blob",
+			"referenceName": "AzureBloblink",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
