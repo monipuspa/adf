@@ -197,6 +197,7 @@
 							]
 						},
 						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -217,7 +218,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "deltasql",
+						"referenceName": "deltasql1",
 						"type": "DatasetReference"
 					}
 				]
