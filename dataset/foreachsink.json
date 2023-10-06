@@ -1,15 +1,15 @@
 {
-	"name": "sink_foreachdata",
+	"name": "foreachsink",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureDataLakeStorage2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"foldername": {
 				"type": "string"
 			},
-			"fiename": {
+			"filename": {
 				"type": "string"
 			}
 		},
@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().fiename",
+					"value": "@dataset().filename",
 					"type": "Expression"
 				},
 				"folderPath": {

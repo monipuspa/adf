@@ -41,9 +41,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_metadata').output.values",
+						"value": "@activity('Lookup_metadata').output.value",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Copy data1",
@@ -92,14 +93,14 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "source_foreachdata",
+									"referenceName": "foreachsource",
 									"type": "DatasetReference",
 									"parameters": {
-										"sourcefoldername": {
+										"foldername": {
 											"value": "@item().sourcefoldername\r\n",
 											"type": "Expression"
 										},
-										"sourcefilename": {
+										"filename": {
 											"value": "@item().sourcefilename\r\n",
 											"type": "Expression"
 										}
@@ -108,14 +109,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "sink_foreachdata",
+									"referenceName": "foreachsink",
 									"type": "DatasetReference",
 									"parameters": {
-										"datalakefoldername": {
+										"foldername": {
 											"value": "@item().datalakefoldername\r\n",
 											"type": "Expression"
 										},
-										"datalakefilename": {
+										"filename": {
 											"value": "@item().datalakefilename\r\n",
 											"type": "Expression"
 										}
