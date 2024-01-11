@@ -6,8 +6,8 @@
 		"type": "FileServer",
 		"typeProperties": {
 			"host": "\\\\Sample Files/CSV/",
-			"userId": "tapakmondal@hotmail.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxMjhlOWNkNC04NzE1LTQwNDUtOWZmYi02MGUzYTk0ZTAyNjEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"userId": "cloud",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiOWZlZjAxNC0zMmI1LTRhODYtYjFlNS1lNzFkNmZkYmZlNTQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime1",
