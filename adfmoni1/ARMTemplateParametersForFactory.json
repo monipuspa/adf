@@ -14,6 +14,12 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
@@ -22,6 +28,9 @@
 		},
 		"AzureSqlDatabase3_connectionString": {
 			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=cloudsqlpool.database.windows.net;Initial Catalog=cloud;User ID=cloud"
+		},
+		"AzureSqlDatabase4_connectionString": {
+			"value": ""
 		},
 		"SqlServer1_connectionString": {
 			"value": "Integrated Security=True;Data Source=MAHI\\SQLEXPRESS;Initial Catalog=azure"
@@ -50,6 +59,12 @@
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://gen2datalake7132023.dfs.core.windows.net/"
 		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://09272023datalakestorage.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://09272023datalakestorage.dfs.core.windows.net/"
+		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://azurekeys1.vault.azure.net/"
 		},
@@ -66,13 +81,13 @@
 			"value": "\\\\Sample Files/CSV/"
 		},
 		"employefile_properties_typeProperties_userId": {
-			"value": "tapakmondal@hotmail.com"
+			"value": "cloud"
 		},
 		"samplefile_properties_typeProperties_host": {
 			"value": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV"
 		},
 		"samplefile_properties_typeProperties_userId": {
-			"value": "tapaskmondal@hotmail.com"
+			"value": "cloud"
 		}
 	}
 }
