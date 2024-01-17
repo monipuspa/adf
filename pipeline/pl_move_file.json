@@ -1,5 +1,5 @@
 {
-	"name": "pipeline5",
+	"name": "pl_move_file",
 	"properties": {
 		"activities": [
 			{
@@ -38,7 +38,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".csv"
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
@@ -121,7 +121,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "sinkdataset_demo",
+						"referenceName": "sinkdataset_1",
 						"type": "DatasetReference"
 					}
 				]
