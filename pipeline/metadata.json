@@ -20,10 +20,6 @@
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"dataset": {
-						"referenceName": "sqlmetadataset",
-						"type": "DatasetReference"
-					},
 					"firstRowOnly": false
 				}
 			},
@@ -81,15 +77,7 @@
 										"fileExtension": ".txt"
 									}
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
+								"enableStaging": false
 							},
 							"inputs": [
 								{
@@ -102,22 +90,6 @@
 										},
 										"filename": {
 											"value": "@item().sourcefilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "foreachsink",
-									"type": "DatasetReference",
-									"parameters": {
-										"foldername": {
-											"value": "@item().datalakefoldername\r\n",
-											"type": "Expression"
-										},
-										"filename": {
-											"value": "@item().datalakefilename\r\n",
 											"type": "Expression"
 										}
 									}
@@ -219,48 +191,8 @@
 									"tableOption": "autoCreate",
 									"disableMetricsCollection": false
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "foreachsink",
-									"type": "DatasetReference",
-									"parameters": {
-										"foldername": {
-											"value": "@item().datalakefoldername\r\n",
-											"type": "Expression"
-										},
-										"filename": {
-											"value": "@item().datalakefilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "sqldatasink",
-									"type": "DatasetReference",
-									"parameters": {
-										"schemaname": {
-											"value": "@item().sqlschemaname\r\n",
-											"type": "Expression"
-										},
-										"tablename": {
-											"value": "@item().sqlfilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								"enableStaging": false
+							}
 						}
 					]
 				}

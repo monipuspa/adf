@@ -80,32 +80,8 @@
 										"fileExtension": ".txt"
 									}
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
+								"enableStaging": false
 							},
-							"inputs": [
-								{
-									"referenceName": "sourceforeach1",
-									"type": "DatasetReference",
-									"parameters": {
-										"foldername": {
-											"value": "@item().sourcefoldername\r\n",
-											"type": "Expression"
-										},
-										"filename": {
-											"value": "@item().sourcefilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							],
 							"outputs": [
 								{
 									"referenceName": "foreachsink1",
@@ -175,15 +151,7 @@
 									"tableOption": "autoCreate",
 									"disableMetricsCollection": false
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
+								"enableStaging": false
 							},
 							"inputs": [
 								{
@@ -196,22 +164,6 @@
 										},
 										"filename": {
 											"value": "@item().datalakefilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "sinksql",
-									"type": "DatasetReference",
-									"parameters": {
-										"schemaname": {
-											"value": "@item().sqlschemaname\r\n",
-											"type": "Expression"
-										},
-										"tablename": {
-											"value": "@item().sqltablename\r\n",
 											"type": "Expression"
 										}
 									}

@@ -79,48 +79,8 @@
 										"fileExtension": ".txt"
 									}
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "sourcedata_fullload",
-									"type": "DatasetReference",
-									"parameters": {
-										"sourcefoldername": {
-											"value": "@item().sourcefoldername\r\n",
-											"type": "Expression"
-										},
-										"sourcefilename": {
-											"value": "@item().sourcefilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "sinkdata_fullload",
-									"type": "DatasetReference",
-									"parameters": {
-										"datalakefoldername": {
-											"value": "@item().datalakefoldername\r\n",
-											"type": "Expression"
-										},
-										"datalakefilename": {
-											"value": "@item().datalakefilename\r\n",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								"enableStaging": false
+							}
 						}
 					]
 				}
