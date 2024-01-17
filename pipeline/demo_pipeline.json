@@ -53,13 +53,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "sourcedemo",
+						"referenceName": "sourcedata",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "sinkdemodataset",
+						"referenceName": "sinkdata",
 						"type": "DatasetReference"
 					}
 				]
