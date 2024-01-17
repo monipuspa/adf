@@ -227,20 +227,8 @@
 					"SqlServer1_password": {
 						"value": "[parameters('SqlServer1_password')]"
 					},
-					"bloblink_connectionString": {
-						"value": "[parameters('bloblink_connectionString')]"
-					},
-					"employefile_password": {
-						"value": "[parameters('employefile_password')]"
-					},
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
-					},
-					"employefile_properties_typeProperties_host": {
-						"value": "[parameters('employefile_properties_typeProperties_host')]"
-					},
-					"employefile_properties_typeProperties_userId": {
-						"value": "[parameters('employefile_properties_typeProperties_userId')]"
 					}
 				}
 			},
@@ -262,8 +250,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"bloblink_connectionString": {
+						"value": "[parameters('bloblink_connectionString')]"
+					},
+					"employefile_password": {
+						"value": "[parameters('employefile_password')]"
+					},
 					"samplefile_password": {
 						"value": "[parameters('samplefile_password')]"
+					},
+					"employefile_properties_typeProperties_host": {
+						"value": "[parameters('employefile_properties_typeProperties_host')]"
+					},
+					"employefile_properties_typeProperties_userId": {
+						"value": "[parameters('employefile_properties_typeProperties_userId')]"
 					},
 					"samplefile_properties_typeProperties_host": {
 						"value": "[parameters('samplefile_properties_typeProperties_host')]"
