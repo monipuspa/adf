@@ -6,12 +6,46 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "adfmoni1"
+		},
+		"samplefile_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'samplefile'"
+		},
+		"samplefile_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV"
+		},
+		"samplefile_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "cloud"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/samplefile')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('samplefile_properties_typeProperties_host')]",
+					"userId": "[parameters('samplefile_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('samplefile_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Pipeline for demo')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
@@ -88,7 +122,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline5')]",
+			"name": "[concat(parameters('factoryName'), '/pl_move_file')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -129,7 +163,7 @@
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".csv"
+									"fileExtension": ".txt"
 								}
 							},
 							"enableStaging": false,
@@ -213,7 +247,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "sinkdataset_demo",
+								"referenceName": "sinkdataset_1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

@@ -206,7 +206,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline5')]",
+			"name": "[concat(parameters('factoryName'), '/pl_move_file')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -247,7 +247,7 @@
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
 									"quoteAllText": true,
-									"fileExtension": ".csv"
+									"fileExtension": ".txt"
 								}
 							},
 							"enableStaging": false,
@@ -331,7 +331,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "sinkdataset_demo",
+								"referenceName": "sinkdataset_1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -351,7 +351,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/datasetdemo1')]",
-				"[concat(variables('factoryId'), '/datasets/sinkdataset_demo')]"
+				"[concat(variables('factoryId'), '/datasets/sinkdataset_1')]"
 			]
 		},
 		{
@@ -778,6 +778,33 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/azurebloblink_copy')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sinkdataset_1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage2')]"
 			]
 		},
 		{

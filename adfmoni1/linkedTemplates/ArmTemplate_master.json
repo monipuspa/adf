@@ -233,9 +233,6 @@
 					"employefile_password": {
 						"value": "[parameters('employefile_password')]"
 					},
-					"samplefile_password": {
-						"value": "[parameters('samplefile_password')]"
-					},
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					},
@@ -244,12 +241,6 @@
 					},
 					"employefile_properties_typeProperties_userId": {
 						"value": "[parameters('employefile_properties_typeProperties_userId')]"
-					},
-					"samplefile_properties_typeProperties_host": {
-						"value": "[parameters('samplefile_properties_typeProperties_host')]"
-					},
-					"samplefile_properties_typeProperties_userId": {
-						"value": "[parameters('samplefile_properties_typeProperties_userId')]"
 					}
 				}
 			},
@@ -270,6 +261,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"samplefile_password": {
+						"value": "[parameters('samplefile_password')]"
+					},
+					"samplefile_properties_typeProperties_host": {
+						"value": "[parameters('samplefile_properties_typeProperties_host')]"
+					},
+					"samplefile_properties_typeProperties_userId": {
+						"value": "[parameters('samplefile_properties_typeProperties_userId')]"
 					}
 				}
 			},

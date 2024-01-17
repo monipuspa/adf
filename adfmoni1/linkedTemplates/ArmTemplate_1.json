@@ -34,10 +34,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'employefile'"
 		},
-		"samplefile_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'samplefile'"
-		},
 		"SqlServer1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "MAHI\\tapas"
@@ -47,14 +43,6 @@
 			"defaultValue": "\\\\Sample Files/CSV/"
 		},
 		"employefile_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "cloud"
-		},
-		"samplefile_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV"
-		},
-		"samplefile_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "cloud"
 		}
@@ -322,6 +310,31 @@
 							"value": "@dataset().sinkpath",
 							"type": "Expression"
 						}
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sinkdataset_1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "output"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -608,28 +621,6 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('employefile_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/samplefile')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "FileServer",
-				"typeProperties": {
-					"host": "[parameters('samplefile_properties_typeProperties_host')]",
-					"userId": "[parameters('samplefile_properties_typeProperties_userId')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('samplefile_password')]"
 					}
 				},
 				"connectVia": {
