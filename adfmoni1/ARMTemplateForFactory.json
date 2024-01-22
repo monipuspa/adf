@@ -299,7 +299,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy data1",
+						"name": "pipeline",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
