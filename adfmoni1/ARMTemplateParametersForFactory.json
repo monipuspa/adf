@@ -50,12 +50,6 @@
 		"dipertment1_accountKey": {
 			"value": ""
 		},
-		"employefile_password": {
-			"value": ""
-		},
-		"samplefile_password": {
-			"value": ""
-		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://gen2datalake7132023.dfs.core.windows.net/"
 		},
@@ -77,17 +71,8 @@
 		"dipertment1_properties_typeProperties_url": {
 			"value": "https://gen2datalake7132023.dfs.core.windows.net/"
 		},
-		"employefile_properties_typeProperties_host": {
-			"value": "\\\\Sample Files/CSV/"
-		},
-		"employefile_properties_typeProperties_userId": {
-			"value": "cloud"
-		},
-		"samplefile_properties_typeProperties_host": {
-			"value": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV"
-		},
-		"samplefile_properties_typeProperties_userId": {
-			"value": "cloud"
+		"synapselink_properties_typeProperties_endpoint": {
+			"value": "https://synapseforwork.dev.azuresynapse.net"
 		}
 	}
 }

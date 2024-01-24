@@ -70,14 +70,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'dipertment1'"
 		},
-		"employefile_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'employefile'"
-		},
-		"samplefile_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'samplefile'"
-		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://gen2datalake7132023.dfs.core.windows.net/"
@@ -106,21 +98,9 @@
 			"type": "string",
 			"defaultValue": "https://gen2datalake7132023.dfs.core.windows.net/"
 		},
-		"employefile_properties_typeProperties_host": {
+		"synapselink_properties_typeProperties_endpoint": {
 			"type": "string",
-			"defaultValue": "\\\\Sample Files/CSV/"
-		},
-		"employefile_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "cloud"
-		},
-		"samplefile_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "\\Users\\tapas\\OneDrive\\Desktop\\\\Sample Files-20230714T150346Z-001.zip\\Sample Files\\CSV"
-		},
-		"samplefile_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "cloud"
+			"defaultValue": "https://synapseforwork.dev.azuresynapse.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -185,12 +165,6 @@
 					"AzureSqlDatabase3_connectionString": {
 						"value": "[parameters('AzureSqlDatabase3_connectionString')]"
 					},
-					"SqlServer1_connectionString": {
-						"value": "[parameters('SqlServer1_connectionString')]"
-					},
-					"SqlServer1_password": {
-						"value": "[parameters('SqlServer1_password')]"
-					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
@@ -209,8 +183,8 @@
 					"dipertment1_properties_typeProperties_url": {
 						"value": "[parameters('dipertment1_properties_typeProperties_url')]"
 					},
-					"SqlServer1_properties_typeProperties_userName": {
-						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					"synapselink_properties_typeProperties_endpoint": {
+						"value": "[parameters('synapselink_properties_typeProperties_endpoint')]"
 					}
 				}
 			},
@@ -230,26 +204,17 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"SqlServer1_connectionString": {
+						"value": "[parameters('SqlServer1_connectionString')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
 					"bloblink_connectionString": {
 						"value": "[parameters('bloblink_connectionString')]"
 					},
-					"employefile_password": {
-						"value": "[parameters('employefile_password')]"
-					},
-					"samplefile_password": {
-						"value": "[parameters('samplefile_password')]"
-					},
-					"employefile_properties_typeProperties_host": {
-						"value": "[parameters('employefile_properties_typeProperties_host')]"
-					},
-					"employefile_properties_typeProperties_userId": {
-						"value": "[parameters('employefile_properties_typeProperties_userId')]"
-					},
-					"samplefile_properties_typeProperties_host": {
-						"value": "[parameters('samplefile_properties_typeProperties_host')]"
-					},
-					"samplefile_properties_typeProperties_userId": {
-						"value": "[parameters('samplefile_properties_typeProperties_userId')]"
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					}
 				}
 			},
